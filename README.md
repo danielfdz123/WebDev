@@ -1,3 +1,3 @@
-# WedDev
+# WebDev
 
 Hello!
