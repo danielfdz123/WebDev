@@ -1,20 +1,20 @@
-h1
+.header
 {
     text-align: center;
 }
 
-a:link
+.hobbies
 {
-    color:#da1748;
-}
-
-a:visited
-{
-    color: #da1748;
+    color:  #da1748;
 }
 
 body
 {
     background-color: rgb(250, 232, 199);
     color: rgb(0, 0, 0);
+}
+
+img
+{
+    border: 5px solid #6e6b6b;
 }
