@@ -1,0 +1,41 @@
+.header
+{
+    text-align: center;
+}
+
+body
+{
+    background-color: rgb(250, 232, 199);
+    color: rgb(0, 0, 0);
+}
+
+.properties
+{
+    border: 5px solid #9b9a9a;
+    display: block;
+    margin: auto;
+}
+
+#add
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(17, 196, 17);
+}
+
+#delete
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color:red;
+}
