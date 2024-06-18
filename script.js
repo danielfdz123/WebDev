@@ -2,22 +2,21 @@
 let addList = document.getElementById("add");
 let RemoveList= document.getElementById("delete");
 
-
+//ADD BUTTON FUNCTION
 addList.onclick = function() 
 {
     //Accesses the ordered list
     let ol = document.querySelector('ol');
 
-    // create a new element <li> </li> 
+    //Creates a new TEXT element
     let li = document.createElement('li');
-
-    // appends the element <li> </li> onto the ordered list
-    ol.append(li)
-
-    // adds the text to the list
     li.innerText = 'Everyone else :)';
+
+    //Adds the text element to the list
+    ol.append(li)
 };
 
+//REMOVE BUTTON FUNCTION
 RemoveList.onclick = function() 
 {
     //Calls ordered list via ID
