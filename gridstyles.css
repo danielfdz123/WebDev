@@ -13,7 +13,71 @@ body
     background-color: rgb(250, 232, 199);
 }
 
+tr,td
+{
+    border:1px;
+    border-style: solid;
+}
+td
+{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(255, 255, 255);
+}
 
+body
+{
+    background-color: rgb(250, 232, 199);
+}
+
+#add
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(17, 196, 17);
+}
+
+#remove
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color:rgb(255, 85, 85);
+}
+
+#other
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color:rgba(79, 113, 206, 0.795);
+}
+
+
+#selectedID
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color:rgb(197, 173, 173);
+}
 /* Added a better looking "add" button */
 #add
 {
