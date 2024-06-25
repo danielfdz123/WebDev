@@ -1,8 +1,7 @@
 let colorSelected; 
 
 //Adds a row
-function addR() 
-{
+function addR() {
     let grid = document.getElementById("grid");
     let rows = document.getElementsByTagName("tr");
 
@@ -18,16 +17,12 @@ function addR()
         grid.appendChild(row);
     //otherwise append a new row with the current
     //amount of columns
-    } 
-    else 
-    {
+    } else {
         let numCols = rows[0].childElementCount;
         let row = document.createElement("tr");
-        for (let i = 0; i < numCols; i++)
-            {
+        for (let i = 0; i < numCols; i++){
             let col = document.createElement("td");
-            col.onclick = function()
-            {
+            col.onclick = function(){
               this.style.backgroundColor = colorSelected;
             };
             row.appendChild(col);
@@ -36,8 +31,7 @@ function addR()
     }
 }
 //Adds a column
-function addC() 
-{
+function addC() {
     let grid = document.getElementById("grid");
     let rows = document.getElementsByTagName("tr");
     
@@ -50,9 +44,7 @@ function addC()
         row.appendChild(col);
         grid.appendChild(row);
 
-    } 
-    else 
-    {
+    } else {
         for (let i = 0; i < rows.length; i++){
             let col = document.createElement("td");
             col.onclick = function(){
@@ -64,12 +56,10 @@ function addC()
 }
 
 //Removes a row
-function removeR() 
-{
+function removeR() {
     let grid = document.getElementById("grid");
     let rows = document.getElementsByTagName("tr");
-    if(rows.length === 0)
-        {
+    if(rows.length === 0){
         alert("There is nothing to delete");
         return;
     }
@@ -79,19 +69,16 @@ function removeR()
     
 }
 //Remove a column
-function removeC() 
-{
+function removeC() {
     let rows = document.getElementsByTagName("tr");
     let grid = document.getElementById("grid");
 
-    if(rows.length === 0)
-        {
+    if(rows.length === 0){
         alert("There is nothing to delete");
         return;
     }
 
-    if(rows[0].childElementCount === 1) 
-        {
+    if(rows[0].childElementCount === 1) {
         grid.innerHTML = "";
         return;
     } 
@@ -103,13 +90,11 @@ function removeC()
 
 }
 //sets global variable for selected color
-function selected()
-{
+function selected(){
     colorSelected = document.getElementById("selectedID").value;
 }
 
-function fill()
-{
+function fill(){
     let cells = document.getElementsByTagName("td");
 
     for (let i = 0; i < cells.length; i++){
@@ -117,22 +102,19 @@ function fill()
     }
 }
 
-function clearAll()
-{
+function clearAll(){
     let cells = document.getElementsByTagName("td");
-    for (let i = 0; i < cells.length; i++)
-        {
+
+    for (let i = 0; i < cells.length; i++){
         cells[i].style.backgroundColor = "";
     }
 }
 
-function fillU()
-{
+function fillU(){
     let cells = document.getElementsByTagName("td");
-    for (let i = 0; i < cells.length; i++)
-        {
-        if (cells[i].style.backgroundColor === "") 
-            {
+
+    for (let i = 0; i < cells.length; i++){
+        if (cells[i].style.backgroundColor === "") {
             cells[i].style.backgroundColor = colorSelected;
         }
     }

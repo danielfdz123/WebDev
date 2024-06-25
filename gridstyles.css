@@ -1,11 +1,8 @@
-tr,td
-{
+tr,td{
     border:1px;
     border-style: solid;
-    
 }
-td
-{
+td{
     height: 50px;
     width: 50px;
     background-color: white;
@@ -14,5 +11,57 @@ td
 body
 {
     background-color: rgb(250, 232, 199);
-    color: rgb(0, 0, 0);
+}
+
+
+/* Added a better looking "add" button */
+#add
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(17, 196, 17);
+}
+
+/* Added a better looking "remove" button */
+#remove
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(255, 0, 0);
+}
+
+/* Added a better looking FILL button */
+#other
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(44, 192, 202);
+}
+
+/* Added a better looking CLEAR button */
+#selectedID
+{
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(203, 212, 221);
 }
