@@ -5,11 +5,10 @@ body {
   width: 100vw;
   height: auto;
   overflow-x: hidden;
-  background-image: url('/Images/homepage.webp');
+  background-image: url('../public/Images/homepage3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; /* Prevent the image from repeating */
-
 }
 
 button {
