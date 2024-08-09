@@ -1,0 +1,56 @@
+.taskBox {
+  width: 100%; 
+  max-width: 1000px;       
+  max-height: 720px;     
+/* Centering in the box */ 
+  margin: 20px auto; 
+  padding: 20px;   
+/*Styling member card */
+  border-radius: 8px;
+  font-family: 'Times New Roman', Times, serif;
+  overflow-y: auto;       
+  display: flex;
+  flex-direction: column;
+  gap: 20px;             
+  /*Container position */ 
+  background-color: #f5e6e646;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  height: 130px;
+  box-sizing: border-box;     
+  border: 1px solid #000000;     
+  background-color: #ffffff93;  
+  border-radius: 4px;         
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h5 {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures content is spaced out */
+  margin: 0; /* Remove default margins */
+
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.card p {
+  text-align: left;
+  font-size: 17px;
+  padding-right: 5px;
+}
+
+.card button {
+    margin-right: right;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(255, 0, 0);
+}

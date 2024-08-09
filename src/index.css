@@ -1,11 +1,9 @@
 body {
-  margin: 0;
+  margin: auto;
   display: flex;
   place-items: center;
-  width: 100vw;
-  height: auto;
   overflow-x: hidden;
-  background-image: url('../public/Images/homepage3.png');
+  background-image: url('../Images/homepage3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; /* Prevent the image from repeating */

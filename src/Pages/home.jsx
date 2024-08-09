@@ -6,7 +6,7 @@ export function Home() {
     <>
         <div class = "HomePage">   
             <h1 class = "hometitle"> "The Hangout" Minecraft Server </h1> 
-            <div class = "aboutBox">
+            <div class = "aboutHome">
                 <u> <h2 class = "heading"> ABOUT </h2> </u>
                 <b class = "text"> Welcome to <i>"<u>The Hangout!</u>"</i> This server is a place where creativity, adventure, and teamwork come together. 
                 Regardless if you're a casual player, or an experienced player there is something for everyone here! 
@@ -17,11 +17,11 @@ export function Home() {
 
             {/* div needed to set up horizaontal boxes */}
             <div class = "horizontal"> 
-                <div class = "teamBox">
+                <div class = "hBOX">
                     <u> <h2 class = "heading"> JOIN THE TEAM! </h2> </u>
-                    <b class = "text"> (dicuss members stuff here) </b>
+                    <b class = "text"> TEAM STUFF GOES HERE </b>
                 </div> 
-                <div class = "taskBox">
+                <div class = "hBOX">
                     <u> <h2 class = "heading"> OUR GOALS </h2> </u>
                     <b class = "text"> (dicuss server goals/tasks here) </b>
                 </div> 
