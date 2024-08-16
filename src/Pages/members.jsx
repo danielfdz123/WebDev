@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import './members.css';
-import MembersBox from '../Components/memberView'; // Adjust the import based on your file structure
+import MembersBox from '../Components/memberView';
 
 export function Members() {
   const [members, setMembers] = useState([
