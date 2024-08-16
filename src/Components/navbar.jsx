@@ -7,16 +7,16 @@ import './navbar.css'
 export function NavBar() {
   return (
     <>
-      <div class = "NavBar">
+      <div className = "NavBar">
         <img src={logo} className="NavBarLogo" alt="Logo" />  
           <Link to = "/">
-            <button class = "NavButtons"> Home </button>
+            <button className = "NavButtons"> Home </button>
           </Link>
           <Link to="/members">
-            <button class = "NavButtons"> Members </button>
+            <button className = "NavButtons"> Members </button>
           </Link>
           <Link to="/tasks">
-            <button class = "NavButtons"> Tasks </button>
+            <button className = "NavButtons"> Tasks </button>
           </Link>
         <Outlet />
       </div> 

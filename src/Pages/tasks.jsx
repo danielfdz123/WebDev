@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import '../App.css';
 import './tasks.css';
-import AllTaskBox from '../Components/allTaskView'; // Adjust the import based on your file structure
+import AllTaskBox from '../Components/allTaskView';
 
 export function Tasks() {
-  const [task, setTask] = useState([
-    {id: 1, title: 'Community Area', description: 'Located on a central island that will hold everything such as community storage, enchanting rooms, along with other buildings and spots that will make the place very cozy!' },
-    {id: 2, title: 'Nether Tunnels', description: "Using a boat and some ice, these tunnels will connect everything this server has to offer! From people's homes, to farms, you can go anywhere!"},
-    {id: 3, title: 'Castle Expansion', description: "Just simply going to make the castle look cool and better" },
+  const [tasks, setTasks] = useState([
+    { id: 1, title: 'Community Area', player: 'BKOakleys', description: 'Located on a central island...' },
+    { id: 2, title: 'Nether Tunnels', player: 'Blorgus', description: 'Using a boat and some ice...' },
+    { id: 3, title: 'Castle Expansion', player: 'Blorgus, BKOakleys', description: 'Just simply going to...' },
   ]);
 
   const addTask = () => {
-  const title = window.prompt("Enter Task Name:")
-  const description = window.prompt ("Enter Task Description")
+    const title = window.prompt("Enter Task Name:");
+    const description = window.prompt("Enter Task Description");
+    const player = window.prompt("Enter who is responsible for this task: ");
 
-  /* Checks if a username and role has been entered, otherwise display an alert message */
-    if (title && description) {
-      const newTask = {id: task.length + 1, title, description};
-      setTask([...task, newTask]);
-    } 
-    else {
-      alert("Both Username and Role type are required.");
+    if (title && description && player) {
+      const newTask = { id: tasks.length + 1, title, player, description };
+      setTasks([...tasks, newTask]);
+    } else {
+      alert("ERROR: Please fill out all 3 prompts to add a task!");
     }
   };
+
   const deleteTask = (index) => {
-    setTask(task.filter((_, i) => i !== index));
+    setTasks(tasks.filter((_, i) => i !== index));
   };
 
   return (
@@ -35,13 +35,13 @@ export function Tasks() {
           <b>
             Below, you will see a list of tasks that the task of <i>"<u>The Hangout</u>"</i> Minecraft server are currently working on! 
             Click on a task to see which player, or players are responsible for said task!
-                <br /> <br />
+            <br /> <br />
             Have a new project idea? Hit the <i>ADD TASK</i> button below to add to the list!
           </b>
         </div>
         <button id="add" onClick={addTask}>ADD TASK</button>
         <div className="allTasks">
-          <AllTaskBox task={task} onDelete={deleteTask} />
+          <AllTaskBox tasks={tasks} onDelete={deleteTask} />
         </div>
       </div>
     </>
