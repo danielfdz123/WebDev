@@ -19,7 +19,7 @@ export function Home() {
             <div className = "horizontal"> 
                 <div className = "hBOX">
                     <u> <h2 className = "heading"> JOIN THE TEAM! </h2> </u>
-                    <b className = "text"> TEAM STUFF GOES HERE </b>
+                    <b className = "text"> (discuss members here) </b>
                 </div> 
                 <div className = "hBOX">
                     <u> <h2 className = "heading"> OUR GOALS </h2> </u>
