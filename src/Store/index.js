@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { memberReducer } from './memberRedux'
-import { tasksReducer } from './taskRedux';
+import { employeesReducer } from './employeesSlice.js';
+import { tasksReducer } from './tasksSlice.js';
 
 const store = configureStore({
   reducer: {
     // Define a top-level state field
-    member: memberReducer,
+    employees: employeesReducer,
     tasks: tasksReducer,
   }
 })

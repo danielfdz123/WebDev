@@ -34,7 +34,7 @@ export function Tasks() {
         <div className="aboutBox">
           <b>
             Below, you will see a list of tasks that the task of <i>"<u>The Hangout</u>"</i> Minecraft server are currently working on! 
-            Click on a task to see which player, or players are responsible for said task!
+            Click on a task to see which player, or players are responsible for said task! Click on the task name to see a more detailed view
             <br /> <br />
             Have a new project idea? Hit the <i>ADD TASK</i> button below to add to the list!
           </b>

@@ -7,10 +7,6 @@ export function Members() {
   const [members, setMembers] = useState([
     { id: 1, username: 'BKOakleys', role: 'Server Owner' },
     { id: 2, username: 'Blorgus', role: 'Member' },
-    { id: 3, username: 'LexLoser', role: 'Member' },
-    { id: 4, username: 'MadamSatan', role: 'Member' },
-    { id: 5, username: 'Serelioexe', role: 'Member' },
-    { id: 6, username: 'Spooderstar', role: 'Member' },
   ]);
 
     const addMember = () => {
@@ -38,6 +34,7 @@ export function Members() {
         <div className="membersAboutBox">
           <b>
             Below, you will see a lineup for <i>"<u>The Hangout</u>"</i> Minecraft server! Each member has their own username displayed along with their role in the server.
+            Click on the name of the member for a more detailed view!
             <br /> <br />
             Hit the <i>ADD MEMBER</i> button below to join us!
           </b>
