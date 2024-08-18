@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import './memberView.css';
 
-//Modal used for SINGLE MEMBER VIEW (shows username, server role, and their tasks)
+// Modal used for SINGLE MEMBER VIEW (shows name, department, and their tasks)
 const Modal = ({ isOpen, onClose, member }) => {
   if (!isOpen) return null;
 
   return (
     <div className="singMemberView">
       <div className="memberDetails">
-        <h1> {member.username} </h1>
-        <p> <u> Role</u>: {member.role}</p>
+        <h1> {member.firstname} {member.lastname} </h1>
+        <p> <u> Role</u>: {member.department}</p>
         <p> This player is working on: </p>
         <ul>
-          <li> Community Area </li>
-          <li> Nether Tunnels </li>
-          <li> Task 3 </li>
+          {member.tasks && member.tasks.length > 0 ? (
+            member.tasks.map((task, index) => (
+              <p>• {task.content}</p>
+            ))
+          ) : (
+            <li>No tasks assigned.</li>
+          )}
         </ul>
         <button onClick={onClose}>Close</button>
       </div>
@@ -36,25 +40,28 @@ const MembersBox = ({ members, onDelete }) => {
     setSelectedMember(null);
   };
 
-  const handleDelete = (index) => {
-    onDelete(index);
+  const handleDelete = (id) => {
+    onDelete(id);
   };
+
+  // Sort members by ID in ascending order
+  const IDorder = [...members].sort((a, b) => a.id - b.id);
 
   return (
     <div className="memberBox">
-      {members.length === 0 ? (
+      {IDorder.length === 0 ? (
         <p>No members found.</p>
       ) : (
-        members.map((member, index) => (
-          <div key={member.id} className="card">
+        IDorder.map((member) => (
+          <div className="card">
             <div className="horizontal">
-              <span> {index + 1}. </span>
+              <span> {member.id}. </span>
               <span className="username" onClick={() => openModal(member)}>
-                <b>{member.username}</b>
+                <b>{member.firstname} {member.lastname}</b>
               </span>
-              <button onClick={() => handleDelete(index)}>X</button>
+              <button onClick={() => handleDelete(member.id)}>X</button>
             </div>
-            <p>{member.role}</p>
+            <p>{member.department}</p>
           </div>
         ))
       )}

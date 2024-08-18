@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import './allTaskView.css';
 
-// Modal used for SINGLE task VIEW (shows task title, description, and assigned players)
+// Modal used for SINGLE task VIEW (shows task title, priority, and assigned employees)
 const Modal = ({ isOpen, onClose, task }) => {
   if (!isOpen) return null;
 
   return (
     <div className="singTaskView">
       <div className="taskDetails">
-        <h1>{task.title}</h1>
-        <p><u>About</u>: {task.description}</p>
-        <p>The following players are working on this task:</p>
+        <h1>{task.content}</h1>
+        <p> <u> Priority Level: <b> {task.priority}</b> </u> </p>
+        <p> People responsible: </p>
         <ul>
-          <li>
-            {task.player}
-          </li>
+          {task.employee ? (
+            <p>• {task.employee.firstname} {task.employee.lastname}</p>
+          ) : (
+            <p> No one assigned. </p>
+          )}
         </ul>
         <button onClick={onClose}>Close</button>
       </div>
@@ -36,8 +38,8 @@ const AllTaskBox = ({ tasks, onDelete }) => {
     setSelectedTask(null);
   };
 
-  const deleteTask = (index) => {
-    onDelete(index);
+  const handleDeleteTask = (id) => {
+    onDelete(id);
   };
 
   return (
@@ -45,16 +47,15 @@ const AllTaskBox = ({ tasks, onDelete }) => {
       {tasks.length === 0 ? (
         <p>No tasks found.</p>
       ) : (
-        tasks.map((task, index) => (
+        tasks.map((task) => (
           <div key={task.id} className="card">
             <div className="horizontal">
               <span className="title" onClick={() => openModal(task)}>
-                <b> • {task.title} </b>
+                <b> • <u>{task.content}</u> </b>
               </span>
-              <span className='player'> ({task.player}) </span>
-              <button onClick={() => deleteTask(index)}>X</button>
+              <span className='priority'> (Priority Level: {task.priority}) </span>
+              <button onClick={() => handleDeleteTask(task.id)}>X</button>
             </div>
-            <p>{task.description}</p>
           </div>
         ))
       )}
