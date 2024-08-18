@@ -1,30 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import './members.css';
 import MembersBox from '../Components/memberView';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchEmployees, addEmployee, deleteEmployee } from '../Store/employeesSlice';
 
 export function Members() {
-  const [members, setMembers] = useState([
-    { id: 1, username: 'BKOakleys', role: 'Server Owner' },
-    { id: 2, username: 'Blorgus', role: 'Member' },
-  ]);
+  const dispatch = useDispatch();
+  const members = useSelector((state) => state.employees);
 
-    const addMember = () => {
-    const username = window.prompt("Enter username:");
-    const role = window.prompt("Enter role:");
+  //Gets tasks from store
+  useEffect(() => {
+    dispatch(fetchEmployees());
+  }, [dispatch]);
 
-/* Checks if a username and role has been entered, otherwise display an alert message */
-    if (username && role) {
-      const newMember = {id: members.length + 1, username, role};
-      setMembers([...members, newMember]);
-    } 
-    else {
-      alert("Both Username and Role type are required.");
-    }
+  //Deletes task from store
+  const deleteMember = (id) => {
+    dispatch(deleteEmployee(id));
   };
 
-  const deleteMember = (index) => {
-    setMembers(members.filter((_, i) => i !== index));
+  //Prompts user to add a member then saves info in the STORE
+  const addMember = async () => {
+    const firstname = window.prompt("Enter FIRST name:");
+    const lastname = window.prompt("Enter LAST name:");
+    let role = window.prompt("OPTIONAL - Enter role:");
+
+    if (!role) {
+      role = "*Department is TBD*";
+    }
+
+    if (firstname && lastname || role) {
+      const newMember = { firstname, lastname, department: role }; // Adjust fields based on backend requirements
+      await dispatch(addEmployee(newMember));
+    } else {
+      alert("Both Username and Role type are required.");
+    }
   };
 
   return (
@@ -33,7 +43,7 @@ export function Members() {
         <h1 className="membersTitle">Meet the Members!</h1>
         <div className="membersAboutBox">
           <b>
-            Below, you will see a lineup for <i>"<u>The Hangout</u>"</i> Minecraft server! Each member has their own username displayed along with their role in the server.
+            Below, you will see a lineup for <i>"<u>The Hangout</u>"</i> Minecraft server! Each name shown below is displayed with their role in the server.
             Click on the name of the member for a more detailed view!
             <br /> <br />
             Hit the <i>ADD MEMBER</i> button below to join us!

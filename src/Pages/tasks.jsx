@@ -1,30 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import '../App.css';
 import './tasks.css';
 import AllTaskBox from '../Components/allTaskView';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTasks, deleteTask as deleteTaskAction, addTask as addTaskAction } from '../Store/tasksSlice';
 
 export function Tasks() {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: 'Community Area', player: 'BKOakleys', description: 'Located on a central island...' },
-    { id: 2, title: 'Nether Tunnels', player: 'Blorgus', description: 'Using a boat and some ice...' },
-    { id: 3, title: 'Castle Expansion', player: 'Blorgus, BKOakleys', description: 'Just simply going to...' },
-  ]);
+  const dispatch = useDispatch();
+  const tasks = useSelector((state) => state.tasks);
 
-  const addTask = () => {
-    const title = window.prompt("Enter Task Name:");
-    const description = window.prompt("Enter Task Description");
-    const player = window.prompt("Enter who is responsible for this task: ");
+  // Gets tasks from store
+  useEffect(() => {
+    dispatch(fetchTasks());
+  }, [dispatch]);
 
-    if (title && description && player) {
-      const newTask = { id: tasks.length + 1, title, player, description };
-      setTasks([...tasks, newTask]);
-    } else {
-      alert("ERROR: Please fill out all 3 prompts to add a task!");
-    }
+  // Deletes task from store
+  const handleDeleteTask = (id) => {
+    dispatch(deleteTaskAction(id));
   };
 
-  const deleteTask = (index) => {
-    setTasks(tasks.filter((_, i) => i !== index));
+  // Prompts user to add a task then saves info in the STORE
+  const addTask = async () => {
+    let content = window.prompt("Enter task name:");
+    let priority = window.prompt("Enter priority level (1-10):");
+
+    if (content && priority) {
+      const newTask = { content, priority }; // Adjust fields based on backend requirements
+      await dispatch(addTaskAction(newTask)); // Ensure `addTaskAction` is correctly imported and used
+    } else {
+      alert("Both task name and priority level are required.");
+    }
   };
 
   return (
@@ -34,14 +39,14 @@ export function Tasks() {
         <div className="aboutBox">
           <b>
             Below, you will see a list of tasks that the task of <i>"<u>The Hangout</u>"</i> Minecraft server are currently working on! 
-            Click on a task to see which player, or players are responsible for said task! Click on the task name to see a more detailed view
+            Click on a task to see which person, or persons are responsible for said task! Click on the task name to see a more detailed view
             <br /> <br />
             Have a new project idea? Hit the <i>ADD TASK</i> button below to add to the list!
           </b>
         </div>
         <button id="add" onClick={addTask}>ADD TASK</button>
         <div className="allTasks">
-          <AllTaskBox tasks={tasks} onDelete={deleteTask} />
+          <AllTaskBox tasks={tasks} onDelete={handleDeleteTask} />
         </div>
       </div>
     </>
